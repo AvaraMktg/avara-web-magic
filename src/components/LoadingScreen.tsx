@@ -43,7 +43,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     >
       <div className="relative flex items-center justify-center">
         <img 
-          src="https://cdn.discordapp.com/attachments/1349542699157553186/1350561477529960570/Avara.png" 
+          src="/lovable-uploads/f345cc1a-f62e-49c5-a505-1f3675cb578f.png" 
           alt="Avara Marketing Logo" 
           className="w-32 h-32 object-contain animate-pulse-soft"
         />

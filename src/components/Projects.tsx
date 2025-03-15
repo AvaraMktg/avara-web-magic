@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -16,14 +17,14 @@ const Projects: React.FC = () => {
     {
       title: "Burak Kus",
       type: "Personal Portfolio",
-      image: "https://cdn.discordapp.com/attachments/1349542699157553186/1350591608516509706/Screenshot_2025-03-15_at_6.08.10_PM.png",
+      image: "/lovable-uploads/cb525470-ac23-42e9-a785-282bc2731627.png",
       link: "https://burakkus.com/",
       description: "A modern, interactive portfolio website showcasing the client's work and expertise."
     },
     {
       title: "Anastasia Florida Realtor",
       type: "Real Estate Website",
-      image: "https://cdn.discordapp.com/attachments/1349542699157553186/1350591830143664198/Screenshot_2025-03-15_at_6.09.24_PM.png",
+      image: "/lovable-uploads/2193696a-30e9-4b2e-9a34-8c5f1aa37b7d.png",
       link: "https://anastasiafloridarealtor.com",
       description: "A professional real estate website designed to showcase properties and generate leads."
     }

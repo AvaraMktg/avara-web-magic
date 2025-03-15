@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const Footer: React.FC = () => {
@@ -9,7 +10,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
             <img 
-              src="https://cdn.discordapp.com/attachments/1349542699157553186/1350561477529960570/Avara.png" 
+              src="/lovable-uploads/f345cc1a-f62e-49c5-a505-1f3675cb578f.png" 
               alt="Avara Marketing Logo" 
               className="h-10 w-10 object-contain"
             />

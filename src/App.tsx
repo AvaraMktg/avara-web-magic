@@ -18,7 +18,7 @@ const App = () => {
     // Update favicon
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement;
     if (link) {
-      link.href = "https://cdn.discordapp.com/attachments/1349542699157553186/1350561477529960570/Avara.png";
+      link.href = "/lovable-uploads/f345cc1a-f62e-49c5-a505-1f3675cb578f.png";
     }
     
     // Update title
