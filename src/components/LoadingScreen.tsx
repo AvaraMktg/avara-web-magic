@@ -41,24 +41,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         !showContent && "opacity-0 pointer-events-none"
       )}
     >
-      <div className="relative flex items-center justify-center">
-        <img 
-          src="/lovable-uploads/f345cc1a-f62e-49c5-a505-1f3675cb578f.png" 
-          alt="Avara Marketing Logo" 
-          className="w-32 h-32 object-contain animate-pulse-soft"
-        />
-        <div className="absolute inset-0 animate-rotate-slow">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <circle cx="50" cy="50" r="48" stroke="url(#gradient)" strokeWidth="1" fill="none" strokeDasharray="0.5 3" />
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#00FFB8" />
-                <stop offset="100%" stopColor="#00668F" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-      </div>
+      <div className="text-5xl tracking-[1.5rem] font-light mb-8">A V A R A</div>
       
       <div className="w-64 bg-secondary rounded-full h-1 overflow-hidden">
         <div 
@@ -68,7 +51,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       </div>
       
       <div className="text-sm font-light text-muted-foreground tracking-widest">
-        AVARA MARKETING
+        MARKETING
       </div>
     </div>
   );

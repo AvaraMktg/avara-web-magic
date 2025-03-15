@@ -29,17 +29,8 @@ const Navbar: React.FC = () => {
         scrolled ? "bg-avara-black/80 backdrop-blur-md py-4" : "bg-transparent py-8"
       )}
     >
-      <div className="container mx-auto flex justify-between items-center">
-        <a href="#home" className="flex items-center gap-2">
-          <img 
-            src="/lovable-uploads/f345cc1a-f62e-49c5-a505-1f3675cb578f.png" 
-            alt="Avara Marketing Logo" 
-            className="h-10 w-10 object-contain"
-          />
-          <span className="font-semibold tracking-wider text-lg">AVARA</span>
-        </a>
-
-        <div className="hidden md:flex items-center space-x-8">
+      <div className="container mx-auto">
+        <div className="hidden md:flex items-center justify-center space-x-12">
           {menuItems.map((item) => (
             <a 
               key={item.name}
@@ -90,6 +81,7 @@ const Navbar: React.FC = () => {
         "fixed inset-0 bg-avara-dark/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out",
         menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       )}>
+        <div className="text-4xl tracking-[1rem] font-light mb-8">A V A R A</div>
         {menuItems.map((item) => (
           <a 
             key={item.name}

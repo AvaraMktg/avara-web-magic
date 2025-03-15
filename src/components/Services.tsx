@@ -100,7 +100,13 @@ const Services: React.FC = () => {
           <h2 className="uppercase text-avara-accent text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
             Our Services
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>What We Do Best</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+            <span className="relative">
+              Transforming Ideas
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-avara-accent/50"></span>
+            </span> 
+            <span className="text-avara-accent">Into Digital Reality</span>
+          </h3>
           <p className="text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             We craft digital experiences that elevate your brand, engage your audience, and drive results.
           </p>
