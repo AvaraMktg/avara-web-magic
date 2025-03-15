@@ -17,30 +17,16 @@ const Projects: React.FC = () => {
     {
       title: "Burak Kus",
       type: "Personal Portfolio",
-      image: "https://via.placeholder.com/800x600/1a1a1a/FFFFFF?text=Burak+Kus+Portfolio",
+      image: "https://cdn.discordapp.com/attachments/1349542699157553186/1350591608516509706/Screenshot_2025-03-15_at_6.08.10_PM.png",
       link: "https://burakkus.com/",
       description: "A modern, interactive portfolio website showcasing the client's work and expertise."
     },
     {
       title: "Anastasia Florida Realtor",
       type: "Real Estate Website",
-      image: "https://via.placeholder.com/800x600/1a1a1a/FFFFFF?text=Anastasia+Realtor",
+      image: "https://cdn.discordapp.com/attachments/1349542699157553186/1350591830143664198/Screenshot_2025-03-15_at_6.09.24_PM.png",
       link: "https://anastasiafloridarealtor.com",
       description: "A professional real estate website designed to showcase properties and generate leads."
-    },
-    {
-      title: "Creative Studio",
-      type: "Agency Website",
-      image: "https://via.placeholder.com/800x600/1a1a1a/FFFFFF?text=Creative+Studio",
-      link: "#",
-      description: "A vibrant, animated website for a creative agency specializing in digital design."
-    },
-    {
-      title: "E-commerce Shop",
-      type: "Online Store",
-      image: "https://via.placeholder.com/800x600/1a1a1a/FFFFFF?text=E-commerce+Shop",
-      link: "#",
-      description: "A fully-functional online store with a sleek user interface and seamless checkout process."
     }
   ];
 

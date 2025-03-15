@@ -139,11 +139,11 @@ const Contact: React.FC = () => {
             <div className="pt-4">
               <h4 className="text-lg font-bold mb-4">Connect With Us</h4>
               <div className="flex flex-col space-y-4">
-                <a href="mailto:hello@avaramarketing.com" className="flex items-center text-muted-foreground hover:text-white transition-colors">
+                <a href="mailto:avaramarketing@yahoo.com" className="flex items-center text-muted-foreground hover:text-white transition-colors">
                   <svg className="w-5 h-5 mr-3 text-avara-accent" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  hello@avaramarketing.com
+                  avaramarketing@yahoo.com
                 </a>
                 <a href="tel:+11234567890" className="flex items-center text-muted-foreground hover:text-white transition-colors">
                   <svg className="w-5 h-5 mr-3 text-avara-accent" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,7 +156,7 @@ const Contact: React.FC = () => {
                     <path d="M17.6569 16.6569C16.7202 17.5935 14.7616 19.5521 13.4138 20.8999C12.6327 21.681 11.3677 21.6814 10.5866 20.9003C9.26234 19.576 7.34159 17.6553 6.34315 16.6569C3.21895 13.5327 3.21895 8.46734 6.34315 5.34315C9.46734 2.21895 14.5327 2.21895 17.6569 5.34315C20.781 8.46734 20.781 13.5327 17.6569 16.6569Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  New York, NY, USA
+                  Miami, FL, USA
                 </div>
               </div>
             </div>
