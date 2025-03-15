@@ -65,17 +65,14 @@ const Navbar: React.FC = () => {
             style={{
               top: menuOpen ? '50%' : 'calc(50% - 4px)',
               left: '50%',
-              translateX: '-50%',
-              translateY: '-50%',
-              rotate: menuOpen ? '45deg' : '0',
+              transform: `translate(-50%, -50%) ${menuOpen ? 'rotate(45deg)' : 'rotate(0)'}`,
             }}
           />
           <div className="absolute w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out"
             style={{
               top: '50%',
               left: '50%',
-              translateX: '-50%',
-              translateY: '-50%',
+              transform: 'translate(-50%, -50%)',
               opacity: menuOpen ? 0 : 1,
             }}
           />
@@ -83,9 +80,7 @@ const Navbar: React.FC = () => {
             style={{
               top: menuOpen ? '50%' : 'calc(50% + 4px)',
               left: '50%',
-              translateX: '-50%',
-              translateY: '-50%',
-              rotate: menuOpen ? '-45deg' : '0',
+              transform: `translate(-50%, -50%) ${menuOpen ? 'rotate(-45deg)' : 'rotate(0)'}`,
             }}
           />
         </button>
