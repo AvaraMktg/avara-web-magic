@@ -22,21 +22,64 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    
+    // Set initial styles
+    element.style.opacity = '0';
+    element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    
+    // Apply initial transform based on animation type
+    if (animation === 'slide-up') {
+      element.style.transform = 'translateY(40px)';
+    } else if (animation === 'slide-down') {
+      element.style.transform = 'translateY(-40px)';
+    } else if (animation === 'slide-left') {
+      element.style.transform = 'translateX(40px)';
+    } else if (animation === 'slide-right') {
+      element.style.transform = 'translateX(-40px)';
+    } else if (animation === 'scale-in') {
+      element.style.transform = 'scale(0.9)';
+    } else if (animation === 'blur-in') {
+      element.style.filter = 'blur(10px)';
+      element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              if (ref.current) {
-                ref.current.classList.add(`animate-${animation}`);
-                if (once) {
-                  observer.unobserve(entry.target);
+              if (element) {
+                element.style.opacity = '1';
+                element.style.transform = 'none';
+                
+                if (animation === 'blur-in') {
+                  element.style.filter = 'blur(0)';
                 }
               }
             }, delay);
+            
+            if (once) {
+              observer.unobserve(entry.target);
+            }
           } else if (!once) {
-            if (ref.current) {
-              ref.current.classList.remove(`animate-${animation}`);
+            if (element) {
+              element.style.opacity = '0';
+              
+              if (animation === 'slide-up') {
+                element.style.transform = 'translateY(40px)';
+              } else if (animation === 'slide-down') {
+                element.style.transform = 'translateY(-40px)';
+              } else if (animation === 'slide-left') {
+                element.style.transform = 'translateX(40px)';
+              } else if (animation === 'slide-right') {
+                element.style.transform = 'translateX(-40px)';
+              } else if (animation === 'scale-in') {
+                element.style.transform = 'scale(0.9)';
+              } else if (animation === 'blur-in') {
+                element.style.filter = 'blur(10px)';
+              }
             }
           }
         });
@@ -44,22 +87,20 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       { threshold }
     );
     
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(element);
     
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.unobserve(element);
     };
   }, [animation, delay, once, threshold]);
   
   return (
     <div 
       ref={ref} 
-      className={cn("opacity-0", className)} 
-      style={{ animationDelay: `${delay}ms`, animationFillMode: 'forwards' }}
+      className={cn(className)} 
+      style={{ 
+        willChange: 'opacity, transform' 
+      }}
     >
       {children}
     </div>

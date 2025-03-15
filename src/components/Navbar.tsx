@@ -26,23 +26,18 @@ const Navbar: React.FC = () => {
     <nav 
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-in-out p-4 md:px-8 lg:px-12 xl:px-24 w-full",
-        scrolled ? "bg-avara-black/80 backdrop-blur-md py-4" : "bg-transparent py-8"
+        scrolled ? "bg-avara-black/80 backdrop-blur-md py-4" : "bg-transparent py-6"
       )}
     >
-      <div className="container mx-auto">
-        <div className="hidden md:flex items-center justify-center space-x-12">
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <div className="text-2xl tracking-[0.5rem] font-light">A V A R A</div>
-          </div>
-          
-          {menuItems.map((item, index) => (
+      <div className="container mx-auto flex flex-col items-center">
+        <div className="text-2xl tracking-[0.5rem] font-light mb-4">A V A R A</div>
+        
+        <div className="hidden md:flex items-center justify-center space-x-8">
+          {menuItems.map((item) => (
             <a 
               key={item.name}
               href={item.href}
-              className={cn(
-                "text-muted-foreground hover:text-white transition-colors duration-300 text-sm circle-link py-1",
-                index >= menuItems.length / 2 ? "ml-auto" : ""
-              )}
+              className="text-muted-foreground hover:text-white transition-colors duration-300 text-sm circle-link py-1"
             >
               {item.name}
             </a>

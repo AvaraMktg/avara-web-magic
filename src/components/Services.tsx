@@ -1,5 +1,6 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import ScrollReveal from '@/components/ScrollReveal';
 
 const Service = ({ 
   icon, 
@@ -12,85 +13,34 @@ const Service = ({
   description: string;
   index?: number;
 }) => {
-  const serviceRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-scale-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (serviceRef.current) {
-      observer.observe(serviceRef.current);
-    }
-
-    return () => {
-      if (serviceRef.current) {
-        observer.unobserve(serviceRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <div 
-      ref={serviceRef}
-      className="bg-card p-6 rounded-xl border border-border/40 hover:border-avara-accent/40 transition-all duration-300 opacity-0"
-      style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'forwards' }}
+    <ScrollReveal 
+      animation="scale-in"
+      delay={index * 100}
+      threshold={0.2}
+      className="bg-card p-6 rounded-xl border border-border/40 hover:border-avara-accent/40 transition-all duration-300"
     >
       <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-4 text-avara-accent">
         {icon}
       </div>
       <h3 className="text-xl font-medium mb-2">{title}</h3>
       <p className="text-muted-foreground">{description}</p>
-    </div>
+    </ScrollReveal>
   );
 };
 
 const Services = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            if (titleRef.current) {
-              titleRef.current.classList.add('animate-fade-in');
-            }
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section id="services" ref={sectionRef} className="py-24 px-4 relative overflow-hidden">
+    <section id="services" className="py-24 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-avara-accent text-sm uppercase tracking-wider mb-2 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>Our Services</h2>
-          <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold opacity-0">
+          <ScrollReveal animation="slide-down" delay={100} className="text-avara-accent text-sm uppercase tracking-wider mb-2">
+            Our Services
+          </ScrollReveal>
+          
+          <ScrollReveal animation="fade-in" delay={200} className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl mx-auto">
             Transforming Ideas Into Digital Reality
-          </h2>
+          </ScrollReveal>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

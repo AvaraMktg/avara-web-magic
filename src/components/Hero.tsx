@@ -1,10 +1,16 @@
 
 import React, { useEffect, useRef } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const heroTitleRef = useScrollAnimation({
+    threshold: 0.2,
+    animationClass: 'animate-fade-in',
+    delay: 200
+  });
   
   useEffect(() => {
     if (titleRef.current) {
@@ -47,7 +53,7 @@ const Hero: React.FC = () => {
         
         <h1 
           ref={titleRef}
-          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight md:leading-tight lg:leading-tight whitespace-nowrap"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight md:leading-tight lg:leading-tight whitespace-normal md:whitespace-nowrap"
         >
           We Create Digital Experiences
         </h1>
