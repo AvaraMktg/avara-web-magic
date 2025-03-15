@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -12,7 +13,7 @@ const Hero: React.FC = () => {
       
       titleElement.innerHTML = '';
       
-      // Wrap each character in a span
+      // Wrap each character in a span with proper spacing
       for (let i = 0; i < text.length; i++) {
         const charSpan = document.createElement('span');
         charSpan.className = 'char';
@@ -46,9 +47,9 @@ const Hero: React.FC = () => {
         
         <h1 
           ref={titleRef}
-          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight md:leading-tight lg:leading-tight split-text"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight md:leading-tight lg:leading-tight whitespace-nowrap"
         >
-          We Create Digital Experiences That Matter
+          We Create Digital Experiences
         </h1>
         
         <p 
