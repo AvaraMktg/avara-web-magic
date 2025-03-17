@@ -31,13 +31,13 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 relative bg-white">
+    <section id="projects" className="py-20 px-4 relative bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="uppercase text-black text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
+          <h2 className="uppercase text-white text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
             Our Portfolio
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Recent Projects</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Recent Projects</h3>
           <p className="text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             Explore our latest work and see how we've helped clients achieve their digital goals.
           </p>
@@ -64,7 +64,7 @@ const Projects: React.FC = () => {
               
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <div>
-                  <span className="text-black text-sm font-medium bg-white/80 px-3 py-1 rounded-full">
+                  <span className="text-white text-sm font-medium bg-black/80 px-3 py-1 rounded-full">
                     {project.type}
                   </span>
                   <h4 className="text-xl md:text-2xl font-bold mt-3 text-white group-hover:text-white transition-colors">
@@ -104,7 +104,7 @@ const Projects: React.FC = () => {
       <div className="mt-12 text-center opacity-0 animate-fade-in" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
         <a 
           href="#contact" 
-          className="inline-flex items-center justify-center px-8 py-3 border border-black/20 hover:border-black text-base font-medium rounded-full text-black hover:text-black transition-all duration-300"
+          className="inline-flex items-center justify-center px-8 py-3 border border-white/20 hover:border-white text-base font-medium rounded-full text-white hover:text-white transition-all duration-300"
         >
           Start Your Project
           <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

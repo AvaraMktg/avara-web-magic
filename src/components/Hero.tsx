@@ -40,12 +40,12 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4 overflow-hidden bg-white">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4 overflow-hidden bg-black">
       <div className="absolute inset-0 bg-noise pointer-events-none"></div>
       
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <h2 
-          className="uppercase text-black text-sm md:text-base font-medium tracking-wider mb-4 opacity-0 animate-slide-down"
+          className="uppercase text-white text-sm md:text-base font-medium tracking-wider mb-4 opacity-0 animate-slide-down"
           style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
         >
           Web Design Agency
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
         
         <h1 
           ref={titleRef}
-          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight md:leading-tight lg:leading-tight whitespace-normal md:whitespace-nowrap text-black"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight md:leading-tight lg:leading-tight whitespace-normal md:whitespace-nowrap text-white"
         >
           We Create Digital Experiences
         </h1>
@@ -72,13 +72,13 @@ const Hero: React.FC = () => {
         >
           <a 
             href="#projects" 
-            className="bg-black text-white font-medium py-3 px-8 rounded-full hover:bg-black/80 transition-all duration-300 transform hover:scale-105"
+            className="bg-white text-black font-medium py-3 px-8 rounded-full hover:bg-white/80 transition-all duration-300 transform hover:scale-105"
           >
             View Our Work
           </a>
           <a 
             href="#contact" 
-            className="bg-transparent border border-black/20 text-black hover:bg-black/5 font-medium py-3 px-8 rounded-full transition-all duration-300"
+            className="bg-transparent border border-white/20 text-white hover:bg-white/5 font-medium py-3 px-8 rounded-full transition-all duration-300"
           >
             Get In Touch
           </a>
@@ -90,13 +90,13 @@ const Hero: React.FC = () => {
         style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
       
       {/* Black element that extends to the next page */}
-      <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-black/10 rounded-full blur-3xl"></div>
-      <div className="absolute -top-32 -right-32 w-64 h-64 bg-black/10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+      <div className="absolute -top-32 -right-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
     </section>
   );
 };

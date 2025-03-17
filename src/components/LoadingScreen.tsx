@@ -37,15 +37,15 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   return (
     <div 
       className={cn(
-        "fixed inset-0 bg-white z-50 flex flex-col items-center justify-center gap-8 overflow-hidden transition-opacity duration-800",
+        "fixed inset-0 bg-black z-50 flex flex-col items-center justify-center gap-8 overflow-hidden transition-opacity duration-800",
         !showContent && "opacity-0 pointer-events-none"
       )}
     >
-      <div className="text-5xl tracking-[1.5rem] font-light mb-8 text-black">A V A R A</div>
+      <div className="text-5xl tracking-[1.5rem] font-light mb-8 text-white">A V A R A</div>
       
-      <div className="w-64 bg-gray-100 rounded-full h-1 overflow-hidden">
+      <div className="w-64 bg-gray-800 rounded-full h-1 overflow-hidden">
         <div 
-          className="h-full bg-black rounded-full transition-all duration-300"
+          className="h-full bg-white rounded-full transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>
