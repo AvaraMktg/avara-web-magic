@@ -45,7 +45,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       
       <div className="w-64 bg-gray-100 rounded-full h-1 overflow-hidden">
         <div 
-          className="h-full bg-gradient-to-r from-black to-gray-600 rounded-full transition-all duration-300"
+          className="h-full bg-black rounded-full transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>
