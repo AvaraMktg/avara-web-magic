@@ -1,4 +1,3 @@
-
 html, body {
   margin: 0;
   padding: 0;
@@ -6,6 +5,7 @@ html, body {
   max-width: 100%;
   scroll-behavior: smooth;
   box-sizing: border-box;
+  cursor: none; /* Hide default cursor */
 }
 
 body {
@@ -20,6 +20,65 @@ body {
   padding: 0;
   text-align: center;
   overflow-x: hidden;
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #333;
+  border: 2px solid #00FFB8;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: exclusion;
+  transition: transform 0.1s ease;
+}
+
+.cursor-aura {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.cursor-aura:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(0, 255, 184, 0.2) 0%, rgba(0, 255, 184, 0) 70%);
+}
+
+.cursor-clicking {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.aura-clicking {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.cursor-visible {
+  opacity: 1;
+}
+
+.cursor-hidden {
+  opacity: 0;
+}
+
+/* Make all interactive elements show the custom cursor */
+a, button, input, textarea, select, [role="button"], 
+[tabindex]:not([tabindex="-1"]) {
+  cursor: none;
 }
 
 .logo {
