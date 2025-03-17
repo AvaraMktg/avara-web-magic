@@ -24,16 +24,16 @@ const Service = ({
         animation="scale-in"
         delay={index * 100}
         threshold={0.2}
-        className="bg-black p-6 rounded-xl border border-gray-800 hover:border-white/40 transition-all duration-300 service-card group-hover:service-shake shadow-sm"
+        className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black/40 transition-all duration-300 service-card group-hover:service-shake shadow-sm"
       >
         <motion.div 
-          className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-4 text-white"
+          className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center mb-4 text-black"
           initial={{ rotate: 0 }}
           whileHover={{ rotate: [0, -10, 10, -5, 5, 0], transition: { duration: 0.5 } }}
         >
           {icon}
         </motion.div>
-        <h3 className="text-xl font-medium mb-2 text-white group-hover:text-white transition-colors duration-300">{title}</h3>
+        <h3 className="text-xl font-medium mb-2 text-black group-hover:text-black transition-colors duration-300">{title}</h3>
         <p className="text-muted-foreground">{description}</p>
       </ScrollReveal>
     </motion.div>
@@ -54,14 +54,14 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-24 px-4 relative overflow-hidden bg-gray-900">
+    <section id="services" className="py-24 px-4 relative overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <ScrollReveal animation="slide-down" delay={100} className="text-white text-sm uppercase tracking-wider mb-2">
+          <ScrollReveal animation="slide-down" delay={100} className="text-black text-sm uppercase tracking-wider mb-2">
             Our Services
           </ScrollReveal>
           
-          <ScrollReveal animation="fade-in" delay={200} className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl mx-auto text-white">
+          <ScrollReveal animation="fade-in" delay={200} className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl mx-auto text-black">
             Transforming Ideas Into Digital Reality
           </ScrollReveal>
         </div>
