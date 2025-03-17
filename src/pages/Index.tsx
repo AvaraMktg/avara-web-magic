@@ -9,6 +9,9 @@ import Footer from '@/components/Footer';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 
+// Import framer-motion for animations
+import { AnimatePresence } from 'framer-motion';
+
 const Index = () => {
   useEffect(() => {
     // Fix overflow issues
@@ -68,16 +71,18 @@ const Index = () => {
   }, []);
 
   return (
-    <TooltipProvider>
-      <div id="main-content" className="min-h-screen bg-avara-black text-white">
-        <Navbar />
-        <Hero />
-        <Services />
-        <Projects />
-        <Contact />
-        <Footer />
-      </div>
-    </TooltipProvider>
+    <AnimatePresence mode="wait">
+      <TooltipProvider>
+        <div id="main-content" className="min-h-screen bg-avara-black text-white">
+          <Navbar />
+          <Hero />
+          <Services />
+          <Projects />
+          <Contact />
+          <Footer />
+        </div>
+      </TooltipProvider>
+    </AnimatePresence>
   );
 };
 

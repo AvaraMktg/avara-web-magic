@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ScrollReveal from '@/components/ScrollReveal';
+import { motion } from 'framer-motion';
 
 const Service = ({ 
   icon, 
@@ -14,22 +15,44 @@ const Service = ({
   index?: number;
 }) => {
   return (
-    <ScrollReveal 
-      animation="scale-in"
-      delay={index * 100}
-      threshold={0.2}
-      className="bg-card p-6 rounded-xl border border-border/40 hover:border-avara-accent/40 transition-all duration-300"
+    <motion.div
+      className="group"
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-4 text-avara-accent">
-        {icon}
-      </div>
-      <h3 className="text-xl font-medium mb-2">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
-    </ScrollReveal>
+      <ScrollReveal 
+        animation="scale-in"
+        delay={index * 100}
+        threshold={0.2}
+        className="bg-card p-6 rounded-xl border border-border/40 hover:border-avara-accent/40 transition-all duration-300 service-card group-hover:service-shake"
+      >
+        <motion.div 
+          className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-4 text-avara-accent"
+          initial={{ rotate: 0 }}
+          whileHover={{ rotate: [0, -10, 10, -5, 5, 0], transition: { duration: 0.5 } }}
+        >
+          {icon}
+        </motion.div>
+        <h3 className="text-xl font-medium mb-2 group-hover:text-avara-accent transition-colors duration-300">{title}</h3>
+        <p className="text-muted-foreground">{description}</p>
+      </ScrollReveal>
+    </motion.div>
   );
 };
 
 const Services = () => {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
   return (
     <section id="services" className="py-24 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -43,7 +66,13 @@ const Services = () => {
           </ScrollReveal>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Service 
             icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
             title="Web Design"
@@ -80,7 +109,7 @@ const Services = () => {
             description="Data-driven strategies to boost your search engine rankings and drive organic traffic to your website."
             index={5}
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

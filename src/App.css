@@ -57,3 +57,41 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+/* Service card shake animation */
+@keyframes service-shake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-1px) rotate(-0.5deg); }
+  50% { transform: translateX(1px) rotate(0.5deg); }
+  75% { transform: translateX(-1px) rotate(-0.25deg); }
+}
+
+.service-shake {
+  animation: service-shake 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.service-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 184, 0.1), transparent);
+  z-index: -1;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.service-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 255, 184, 0.1);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
