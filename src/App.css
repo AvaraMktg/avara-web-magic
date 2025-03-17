@@ -6,6 +6,7 @@ html, body {
   max-width: 100%;
   scroll-behavior: smooth;
   box-sizing: border-box;
+  cursor: none; /* Hide the default cursor */
 }
 
 body {
@@ -22,6 +23,56 @@ body {
   overflow-x: hidden;
 }
 
+/* Custom cursor styles */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #8A898C;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s ease;
+}
+
+.cursor-outline {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #00FFB8;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, opacity 0.15s ease;
+}
+
+.cursor-aura {
+  width: 64px;
+  height: 64px;
+  background-color: #00FFB8;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  filter: blur(20px);
+  transition: transform 0.3s ease, opacity 0.15s ease, scale 0.3s ease;
+}
+
+/* Fallback for mobile devices where the custom cursor doesn't work */
+@media (max-width: 768px) {
+  .cursor-dot, .cursor-outline, .cursor-aura {
+    display: none;
+  }
+  
+  html, body {
+    cursor: auto;
+  }
+}
+
+/* Rest of the original styles */
 .logo {
   height: 6em;
   padding: 1.5em;

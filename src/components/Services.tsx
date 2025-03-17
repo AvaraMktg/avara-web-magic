@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ScrollReveal from '@/components/ScrollReveal';
+import { motion } from 'framer-motion';
 
 const Service = ({ 
   icon, 
@@ -18,32 +19,49 @@ const Service = ({
       animation="scale-in"
       delay={index * 100}
       threshold={0.2}
-      className="bg-card p-6 rounded-xl border border-border/40 hover:border-avara-accent/40 transition-all duration-300"
+      className="relative group overflow-hidden"
     >
-      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-4 text-avara-accent">
-        {icon}
-      </div>
-      <h3 className="text-xl font-medium mb-2">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
+      <motion.div 
+        className="bg-card p-8 rounded-xl border border-border/40 hover:border-avara-accent/40 transition-all duration-500 h-full"
+        whileHover={{ y: -5, transition: { duration: 0.3 } }}
+      >
+        <div className="absolute -right-20 -top-20 w-40 h-40 bg-avara-accent/5 rounded-full blur-3xl group-hover:bg-avara-accent/10 transition-all duration-700"></div>
+        <div className="flex flex-col h-full relative z-10">
+          <div className="w-14 h-14 bg-muted/50 rounded-xl flex items-center justify-center mb-6 text-avara-accent transform group-hover:rotate-12 transition-all duration-500">
+            {icon}
+          </div>
+          <h3 className="text-2xl font-medium mb-3">{title}</h3>
+          <p className="text-muted-foreground group-hover:text-white/80 transition-colors duration-300">{description}</p>
+          <div className="mt-auto pt-6">
+            <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-avara-accent to-transparent transition-all duration-500"></div>
+          </div>
+        </div>
+      </motion.div>
     </ScrollReveal>
   );
 };
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 px-4 relative overflow-hidden">
+    <section id="services" className="py-32 px-4 relative overflow-hidden">
+      <div className="absolute left-0 right-0 top-0 h-[500px] bg-gradient-to-b from-avara-accent/5 to-transparent opacity-50 pointer-events-none"></div>
+      
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <ScrollReveal animation="slide-down" delay={100} className="text-avara-accent text-sm uppercase tracking-wider mb-2">
+        <div className="text-center mb-20">
+          <ScrollReveal animation="slide-down" delay={100} className="text-avara-accent text-sm uppercase tracking-widest mb-3">
             Our Services
           </ScrollReveal>
           
-          <ScrollReveal animation="fade-in" delay={200} className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl mx-auto">
+          <ScrollReveal animation="fade-in" delay={200} className="text-4xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto">
             Transforming Ideas Into Digital Reality
+          </ScrollReveal>
+          
+          <ScrollReveal animation="fade-in" delay={300} className="max-w-xl mx-auto text-muted-foreground">
+            We craft exceptional digital experiences that help businesses stand out in the digital landscape.
           </ScrollReveal>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <Service 
             icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
             title="Web Design"
@@ -64,8 +82,8 @@ const Services = () => {
           />
           <Service 
             icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 16L8.58579 11.4142C9.36683 10.6332 10.6332 10.6332 11.4142 11.4142L16 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M14 14L15.5858 12.4142C16.3668 11.6332 17.6332 11.6332 18.4142 12.4142L20 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="9" cy="7" r="1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/></svg>}
-            title="Digital Marketing"
-            description="Strategic campaigns that increase your online visibility and connect you with your target audience."
+            title="Content Creation"
+            description="Strategic content that increases your online visibility and connects you with your target audience."
             index={3}
           />
           <Service 
@@ -81,6 +99,17 @@ const Services = () => {
             index={5}
           />
         </div>
+      </div>
+      
+      <div className="mt-16 text-center">
+        <ScrollReveal animation="fade-in" delay={200} className="inline-block">
+          <a href="#contact" className="px-8 py-4 bg-card hover:bg-card/80 border border-avara-accent/30 hover:border-avara-accent text-white rounded-full transition-all duration-300 group">
+            <span className="flex items-center">
+              Discuss Your Project 
+              <svg className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </span>
+          </a>
+        </ScrollReveal>
       </div>
     </section>
   );
