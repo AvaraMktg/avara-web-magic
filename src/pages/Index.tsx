@@ -6,7 +6,6 @@ import Services from '@/components/Services';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import CustomCursor from '@/components/CustomCursor';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 
@@ -71,7 +70,6 @@ const Index = () => {
   return (
     <TooltipProvider>
       <div id="main-content" className="min-h-screen bg-avara-black text-white">
-        <CustomCursor />
         <Navbar />
         <Hero />
         <Services />
