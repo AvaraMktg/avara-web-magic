@@ -94,8 +94,7 @@ const Hero: React.FC = () => {
         </svg>
       </div>
       
-      <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-      <div className="absolute -top-32 -right-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+      {/* Removed the white blur effects from top-right and bottom-left */}
     </section>
   );
 };
