@@ -54,11 +54,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				avara: {
-					dark: '#0D0D0D',
+					dark: '#222222',
 					black: '#000000',
-					light: '#F8F8F8',
-					accent: '#00FFB8',
-					'accent-dark': '#00CC94'
+					light: '#FFFFFF',
+					accent: '#000000',
+					'accent-dark': '#222222'
 				}
 			},
 			borderRadius: {

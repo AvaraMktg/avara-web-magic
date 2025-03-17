@@ -31,13 +31,13 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 relative">
+    <section id="projects" className="py-20 px-4 relative bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="uppercase text-avara-accent text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
+          <h2 className="uppercase text-black text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
             Our Portfolio
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Recent Projects</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Recent Projects</h3>
           <p className="text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             Explore our latest work and see how we've helped clients achieve their digital goals.
           </p>
@@ -48,7 +48,7 @@ const Projects: React.FC = () => {
             <div 
               key={index}
               className={cn(
-                "group cursor-pointer relative overflow-hidden rounded-2xl animated-border-card opacity-0 animate-scale-in",
+                "group cursor-pointer relative overflow-hidden rounded-2xl animated-border-card opacity-0 animate-scale-in shadow-lg",
               )}
               style={{ animationDelay: `${0.2 + index * 0.2}s`, animationFillMode: 'forwards' }}
               onMouseEnter={() => setActiveIndex(index)}
@@ -60,14 +60,14 @@ const Projects: React.FC = () => {
                 className="w-full h-[300px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-avara-black via-transparent to-transparent opacity-80"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
               
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <div>
-                  <span className="text-avara-accent text-sm font-medium bg-avara-black/50 px-3 py-1 rounded-full">
+                  <span className="text-black text-sm font-medium bg-white/80 px-3 py-1 rounded-full">
                     {project.type}
                   </span>
-                  <h4 className="text-xl md:text-2xl font-bold mt-3 group-hover:text-avara-accent transition-colors">
+                  <h4 className="text-xl md:text-2xl font-bold mt-3 text-white group-hover:text-white transition-colors">
                     {project.title}
                   </h4>
                   
@@ -75,7 +75,7 @@ const Projects: React.FC = () => {
                     "max-h-0 overflow-hidden transition-all duration-500",
                     activeIndex === index && "max-h-[100px] mt-4"
                   )}>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-white/80 text-sm">
                       {project.description}
                     </p>
                   </div>
@@ -86,7 +86,7 @@ const Projects: React.FC = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className={cn(
-                    "mt-4 inline-flex items-center text-sm font-medium text-avara-accent opacity-0 transform translate-y-4 transition-all duration-500",
+                    "mt-4 inline-flex items-center text-sm font-medium text-white opacity-0 transform translate-y-4 transition-all duration-500",
                     activeIndex === index && "opacity-100 translate-y-0"
                   )}
                 >
@@ -104,7 +104,7 @@ const Projects: React.FC = () => {
       <div className="mt-12 text-center opacity-0 animate-fade-in" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
         <a 
           href="#contact" 
-          className="inline-flex items-center justify-center px-8 py-3 border border-white/20 hover:border-avara-accent text-base font-medium rounded-full text-white hover:text-avara-accent transition-all duration-300"
+          className="inline-flex items-center justify-center px-8 py-3 border border-black/20 hover:border-black text-base font-medium rounded-full text-black hover:text-black transition-all duration-300"
         >
           Start Your Project
           <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

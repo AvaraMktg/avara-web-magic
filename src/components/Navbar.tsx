@@ -26,25 +26,25 @@ const Navbar: React.FC = () => {
     <nav 
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-in-out p-4 md:px-8 lg:px-12 xl:px-24 w-full",
-        scrolled ? "bg-avara-black/80 backdrop-blur-md py-4" : "bg-transparent py-6"
+        scrolled ? "bg-white/80 backdrop-blur-md py-4 shadow-sm" : "bg-transparent py-6"
       )}
     >
       <div className="container mx-auto flex flex-col items-center">
-        <div className="text-2xl tracking-[0.5rem] font-light mb-4">A V A R A</div>
+        <div className="text-2xl tracking-[0.5rem] font-light mb-4 text-black">A V A R A</div>
         
         <div className="hidden md:flex items-center justify-center space-x-8">
           {menuItems.map((item) => (
             <a 
               key={item.name}
               href={item.href}
-              className="text-muted-foreground hover:text-white transition-colors duration-300 text-sm circle-link py-1"
+              className="text-muted-foreground hover:text-black transition-colors duration-300 text-sm circle-link py-1"
             >
               {item.name}
             </a>
           ))}
           <a 
             href="#contact" 
-            className="bg-avara-accent text-avara-black font-medium text-sm py-2 px-6 rounded-full hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105"
+            className="bg-black text-white font-medium text-sm py-2 px-6 rounded-full hover:bg-black/80 transition-all duration-300 transform hover:scale-105"
           >
             Get In Touch
           </a>
@@ -80,16 +80,16 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className={cn(
-        "fixed inset-0 bg-avara-dark/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out",
+        "fixed inset-0 bg-white/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out",
         menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       )}>
-        <div className="text-4xl tracking-[1rem] font-light mb-8">A V A R A</div>
+        <div className="text-4xl tracking-[1rem] font-light mb-8 text-black">A V A R A</div>
         {menuItems.map((item) => (
           <a 
             key={item.name}
             href={item.href}
             onClick={() => setMenuOpen(false)}
-            className="text-2xl text-white hover:text-avara-accent transition-colors duration-300"
+            className="text-2xl text-black hover:text-gray-600 transition-colors duration-300"
           >
             {item.name}
           </a>
@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
         <a 
           href="#contact" 
           onClick={() => setMenuOpen(false)}
-          className="mt-4 bg-avara-accent text-avara-black font-medium py-3 px-8 rounded-full hover:bg-opacity-80 transition-all duration-300"
+          className="mt-4 bg-black text-white font-medium py-3 px-8 rounded-full hover:bg-black/80 transition-all duration-300"
         >
           Get In Touch
         </a>

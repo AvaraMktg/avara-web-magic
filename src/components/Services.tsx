@@ -24,16 +24,16 @@ const Service = ({
         animation="scale-in"
         delay={index * 100}
         threshold={0.2}
-        className="bg-card p-6 rounded-xl border border-border/40 hover:border-avara-accent/40 transition-all duration-300 service-card group-hover:service-shake"
+        className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black/40 transition-all duration-300 service-card group-hover:service-shake shadow-sm"
       >
         <motion.div 
-          className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-4 text-avara-accent"
+          className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center mb-4 text-black"
           initial={{ rotate: 0 }}
           whileHover={{ rotate: [0, -10, 10, -5, 5, 0], transition: { duration: 0.5 } }}
         >
           {icon}
         </motion.div>
-        <h3 className="text-xl font-medium mb-2 group-hover:text-avara-accent transition-colors duration-300">{title}</h3>
+        <h3 className="text-xl font-medium mb-2 text-black group-hover:text-black transition-colors duration-300">{title}</h3>
         <p className="text-muted-foreground">{description}</p>
       </ScrollReveal>
     </motion.div>
@@ -54,14 +54,14 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-24 px-4 relative overflow-hidden">
+    <section id="services" className="py-24 px-4 relative overflow-hidden bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <ScrollReveal animation="slide-down" delay={100} className="text-avara-accent text-sm uppercase tracking-wider mb-2">
+          <ScrollReveal animation="slide-down" delay={100} className="text-black text-sm uppercase tracking-wider mb-2">
             Our Services
           </ScrollReveal>
           
-          <ScrollReveal animation="fade-in" delay={200} className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl mx-auto">
+          <ScrollReveal animation="fade-in" delay={200} className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl mx-auto text-black">
             Transforming Ideas Into Digital Reality
           </ScrollReveal>
         </div>
