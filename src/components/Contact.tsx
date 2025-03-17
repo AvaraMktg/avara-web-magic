@@ -5,22 +5,22 @@ import { Instagram } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-20 px-4 relative bg-white">
+    <section id="contact" className="py-20 px-4 relative bg-black">
       <div className="absolute inset-0 bg-noise pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="uppercase text-black text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
+          <h2 className="uppercase text-white text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
             Get In Touch
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Let's Create Something Amazing Together</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Let's Create Something Amazing Together</h3>
           <p className="text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             Ready to elevate your online presence? Connect with us today and let's discuss your project.
           </p>
         </div>
         
         <div className="grid grid-cols-1 gap-12 items-center">
-          <div className="glass-panel rounded-2xl p-10 max-w-3xl mx-auto w-full opacity-0 animate-scale-in shadow-lg bg-white border border-gray-200" 
+          <div className="glass-panel rounded-2xl p-10 max-w-3xl mx-auto w-full opacity-0 animate-scale-in shadow-lg bg-black border border-white/20" 
                style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
             
             <div className="text-center mb-8">
@@ -96,8 +96,7 @@ const Contact: React.FC = () => {
         </div>
       </div>
       
-      {/* Changed white element to black */}
-      <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-black/5 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
     </section>
   );
 };
