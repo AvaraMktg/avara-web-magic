@@ -34,7 +34,8 @@ const Index = () => {
         
         // Set a new timeout - only update ScrollTrigger after scrolling stops
         timeout = setTimeout(() => {
-          ScrollTrigger.update();
+          // Update ScrollTrigger with no arguments instead of default 1 argument
+          ScrollTrigger.update(true, false);
         }, 100) as unknown as number;
       });
       
