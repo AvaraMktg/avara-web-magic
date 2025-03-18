@@ -7,12 +7,16 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import 'locomotive-scroll/dist/locomotive-scroll.css';
+import useGsapScrollTrigger from '@/hooks/useGsapScrollTrigger';
+import { useSmoothScroll } from '@/providers/SmoothScrollProvider';
 
 // Import framer-motion for animations
 import { AnimatePresence } from 'framer-motion';
 
 const Index = () => {
+  const { lenis, isReady } = useSmoothScroll();
+  const { ScrollTrigger } = useGsapScrollTrigger();
+
   useEffect(() => {
     // Fix overflow issues
     document.body.style.overflowX = 'hidden';
@@ -20,35 +24,17 @@ const Index = () => {
     document.documentElement.style.overflowX = 'hidden';
     document.documentElement.style.width = '100%';
     
-    // Import locomotive-scroll dynamically to prevent SSR issues
-    import('locomotive-scroll').then((locomotiveModule) => {
-      const LocomotiveScroll = locomotiveModule.default;
-      const scroll = new LocomotiveScroll({
-        el: document.querySelector('#main-content') as HTMLElement,
-        smooth: true,
-        smoothMobile: true,
-        multiplier: 1,
-        tablet: {
-          smooth: true,
-          breakpoint: 1024
-        },
-        smartphone: {
-          smooth: true
-        }
-      });
-
-      // Update locomotive scroll when content changes
-      setTimeout(() => {
-        scroll.update();
-      }, 500);
-
-      // Manage scroll to hash on page load
+    // Update ScrollTrigger when Lenis updates
+    if (lenis) {
+      lenis.on('scroll', ScrollTrigger.update);
+      
+      // Handle scroll to hash on page load
       const hash = window.location.hash;
       if (hash) {
         setTimeout(() => {
           const target = document.querySelector(hash);
           if (target) {
-            scroll.scrollTo(target);
+            lenis.scrollTo(target);
           }
         }, 600);
       }
@@ -59,21 +45,23 @@ const Index = () => {
           e.preventDefault();
           const target = this.getAttribute('href');
           if (target) {
-            scroll.scrollTo(target);
+            lenis.scrollTo(target);
           }
         });
       });
+    }
 
-      return () => {
-        if (scroll) scroll.destroy();
-      };
-    });
-  }, []);
+    return () => {
+      if (lenis) {
+        lenis.off('scroll', ScrollTrigger.update);
+      }
+    };
+  }, [lenis, isReady, ScrollTrigger]);
 
   return (
     <AnimatePresence mode="wait">
       <TooltipProvider>
-        <div id="main-content" className="min-h-screen bg-avara-black text-white">
+        <div id="main-content" className="min-h-screen bg-black text-white">
           <Navbar />
           <Hero />
           <Services />
