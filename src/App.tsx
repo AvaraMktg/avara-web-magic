@@ -19,7 +19,7 @@ const App = () => {
     // Update favicon
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement;
     if (link) {
-      link.href = "/lovable-uploads/f345cc1a-f62e-49c5-a505-1f3675cb578f.png";
+      link.href = "/lovable-uploads/7a994331-319b-44be-adc9-8a0c09faef07.png";
     }
     
     // Update title
