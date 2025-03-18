@@ -33,7 +33,7 @@ const Index = () => {
       if (hash) {
         setTimeout(() => {
           const target = document.querySelector(hash);
-          if (target) {
+          if (target instanceof HTMLElement) {
             lenis.scrollTo(target);
           }
         }, 600);
@@ -43,9 +43,12 @@ const Index = () => {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
-          const target = this.getAttribute('href');
-          if (target) {
-            lenis.scrollTo(target);
+          const targetSelector = this.getAttribute('href');
+          if (targetSelector) {
+            const targetElement = document.querySelector(targetSelector);
+            if (targetElement instanceof HTMLElement) {
+              lenis.scrollTo(targetElement);
+            }
           }
         });
       });
