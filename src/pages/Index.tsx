@@ -46,7 +46,7 @@ const Index = () => {
           if (target instanceof HTMLElement) {
             lenis.scrollTo(target, { 
               duration: 0.8, // Faster scrolling
-              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Fixed easing function
+              easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Fixed easing function with type annotation
             });
           }
         }, 300);
@@ -62,7 +62,7 @@ const Index = () => {
             if (targetElement instanceof HTMLElement) {
               lenis.scrollTo(targetElement, { 
                 duration: 0.8, // Faster scrolling
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Fixed easing function
+                easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Fixed easing function with type annotation
               });
             }
           }
