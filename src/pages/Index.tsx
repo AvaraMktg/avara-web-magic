@@ -24,36 +24,22 @@ const Index = () => {
     document.documentElement.style.overflowX = 'hidden';
     document.documentElement.style.width = '100%';
     
-    // Only update ScrollTrigger on scroll end to improve performance
+    // Update ScrollTrigger when Lenis updates
     if (lenis) {
-      let timeout: number;
+      lenis.on('scroll', ScrollTrigger.update);
       
-      lenis.on('scroll', () => {
-        // Clear previous timeout
-        clearTimeout(timeout);
-        
-        // Set a new timeout - only update ScrollTrigger after scrolling stops
-        timeout = setTimeout(() => {
-          // Call update without arguments as per the type definition
-          ScrollTrigger.update();
-        }, 100) as unknown as number;
-      });
-      
-      // Handle scroll to hash on page load with reduced timeout
+      // Handle scroll to hash on page load
       const hash = window.location.hash;
       if (hash) {
         setTimeout(() => {
           const target = document.querySelector(hash);
           if (target instanceof HTMLElement) {
-            lenis.scrollTo(target, { 
-              duration: 0.8, // Faster scrolling
-              easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Fixed easing function
-            });
+            lenis.scrollTo(target);
           }
-        }, 300);
+        }, 600);
       }
 
-      // Handle anchor links with optimized scrolling
+      // Handle anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
@@ -61,10 +47,7 @@ const Index = () => {
           if (targetSelector) {
             const targetElement = document.querySelector(targetSelector);
             if (targetElement instanceof HTMLElement) {
-              lenis.scrollTo(targetElement, { 
-                duration: 0.8, // Faster scrolling
-                easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Fixed easing function
-              });
+              lenis.scrollTo(targetElement);
             }
           }
         });
@@ -73,7 +56,7 @@ const Index = () => {
 
     return () => {
       if (lenis) {
-        lenis.off('scroll');
+        lenis.off('scroll', ScrollTrigger.update);
       }
     };
   }, [lenis, isReady, ScrollTrigger]);

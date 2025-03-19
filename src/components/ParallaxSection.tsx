@@ -15,9 +15,9 @@ interface ParallaxSectionProps {
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   children,
   className,
-  speed = 0.1, // Reduced default speed for better performance
+  speed = 0.2,
   direction = 'up',
-  threshold = 0.2, // Increased threshold for fewer calculations
+  threshold = 0.1,
   container = true,
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -27,22 +27,25 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
     if (!sectionRef.current) return;
     
     let directionMultiplier = 1;
+    let property = 'y';
     
     if (direction === 'up') {
       directionMultiplier = -1;
+      property = 'y';
     } else if (direction === 'down') {
       directionMultiplier = 1;
+      property = 'y';
     } else if (direction === 'left') {
       directionMultiplier = -1;
+      property = 'x';
     } else if (direction === 'right') {
       directionMultiplier = 1;
+      property = 'x';
     }
     
-    // Create the parallax effect with optimized settings
     const parallaxEffect = createParallaxEffect(sectionRef.current, speed * directionMultiplier, {
       start: `top ${(1 - threshold) * 100}%`,
       end: `bottom ${threshold * 100}%`,
-      scrub: 1, // Add a small delay to improve performance
     });
     
     return () => {
