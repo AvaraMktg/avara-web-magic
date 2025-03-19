@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import LoadingScreen from "./components/LoadingScreen";
-import SmoothScrollProvider from "./providers/SmoothScrollProvider";
 
 const queryClient = new QueryClient();
 
@@ -19,7 +18,7 @@ const App = () => {
     // Update favicon
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement;
     if (link) {
-      link.href = "/lovable-uploads/7a994331-319b-44be-adc9-8a0c09faef07.png";
+      link.href = "/lovable-uploads/f345cc1a-f62e-49c5-a505-1f3675cb578f.png";
     }
     
     // Update title
@@ -29,22 +28,15 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <SmoothScrollProvider options={{ 
-          lerp: 0.08, 
-          smoothWheel: true,
-          wheelMultiplier: 0.8,
-          touchMultiplier: 2
-        }}>
-          <Toaster />
-          <Sonner />
-          {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </SmoothScrollProvider>
+        <Toaster />
+        <Sonner />
+        {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );

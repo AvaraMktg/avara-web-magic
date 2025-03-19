@@ -7,16 +7,12 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import useGsapScrollTrigger from '@/hooks/useGsapScrollTrigger';
-import { useSmoothScroll } from '@/providers/SmoothScrollProvider';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 // Import framer-motion for animations
 import { AnimatePresence } from 'framer-motion';
 
 const Index = () => {
-  const { lenis, isReady } = useSmoothScroll();
-  const { ScrollTrigger } = useGsapScrollTrigger();
-
   useEffect(() => {
     // Fix overflow issues
     document.body.style.overflowX = 'hidden';
@@ -24,64 +20,60 @@ const Index = () => {
     document.documentElement.style.overflowX = 'hidden';
     document.documentElement.style.width = '100%';
     
-    // Only update ScrollTrigger on scroll end to improve performance
-    if (lenis) {
-      let timeout: number;
-      
-      lenis.on('scroll', () => {
-        // Clear previous timeout
-        clearTimeout(timeout);
-        
-        // Set a new timeout - only update ScrollTrigger after scrolling stops
-        timeout = setTimeout(() => {
-          // Call update without arguments as per the type definition
-          ScrollTrigger.update();
-        }, 100) as unknown as number;
+    // Import locomotive-scroll dynamically to prevent SSR issues
+    import('locomotive-scroll').then((locomotiveModule) => {
+      const LocomotiveScroll = locomotiveModule.default;
+      const scroll = new LocomotiveScroll({
+        el: document.querySelector('#main-content') as HTMLElement,
+        smooth: true,
+        smoothMobile: true,
+        multiplier: 1,
+        tablet: {
+          smooth: true,
+          breakpoint: 1024
+        },
+        smartphone: {
+          smooth: true
+        }
       });
-      
-      // Handle scroll to hash on page load with reduced timeout
+
+      // Update locomotive scroll when content changes
+      setTimeout(() => {
+        scroll.update();
+      }, 500);
+
+      // Manage scroll to hash on page load
       const hash = window.location.hash;
       if (hash) {
         setTimeout(() => {
           const target = document.querySelector(hash);
-          if (target instanceof HTMLElement) {
-            lenis.scrollTo(target, { 
-              duration: 0.8, // Faster scrolling
-              easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Fixed easing function
-            });
+          if (target) {
+            scroll.scrollTo(target);
           }
-        }, 300);
+        }, 600);
       }
 
-      // Handle anchor links with optimized scrolling
+      // Handle anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
-          const targetSelector = this.getAttribute('href');
-          if (targetSelector) {
-            const targetElement = document.querySelector(targetSelector);
-            if (targetElement instanceof HTMLElement) {
-              lenis.scrollTo(targetElement, { 
-                duration: 0.8, // Faster scrolling
-                easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) // Fixed easing function
-              });
-            }
+          const target = this.getAttribute('href');
+          if (target) {
+            scroll.scrollTo(target);
           }
         });
       });
-    }
 
-    return () => {
-      if (lenis) {
-        lenis.off('scroll');
-      }
-    };
-  }, [lenis, isReady, ScrollTrigger]);
+      return () => {
+        if (scroll) scroll.destroy();
+      };
+    });
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
       <TooltipProvider>
-        <div id="main-content" className="min-h-screen bg-black text-white">
+        <div id="main-content" className="min-h-screen bg-avara-black text-white">
           <Navbar />
           <Hero />
           <Services />

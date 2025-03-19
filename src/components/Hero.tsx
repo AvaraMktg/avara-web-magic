@@ -1,69 +1,53 @@
 
 import React, { useEffect, useRef } from 'react';
-import useGsapScrollTrigger from '@/hooks/useGsapScrollTrigger';
-import ParallaxSection from '@/components/ParallaxSection';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const arrowRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  
-  const { gsap, createTimeline } = useGsapScrollTrigger();
+  const heroTitleRef = useScrollAnimation({
+    threshold: 0.2,
+    animationClass: 'animate-fade-in',
+    delay: 200
+  });
   
   useEffect(() => {
-    if (!sectionRef.current) return;
-    
-    // Create a simpler, more performant timeline for initial animations
-    const heroTl = createTimeline({
-      trigger: sectionRef.current,
-      start: "top 90%",
-      end: "center center",
-      scrub: false
-    });
-    
-    // Add animations to the timeline - simplified for better performance
-    heroTl
-      .from(titleRef.current, {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      })
-      .from(subtitleRef.current, {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }, "-=0.4")
-      .from(ctaRef.current, {
-        y: 15,
-        opacity: 0,
-        duration: 0.5
-      }, "-=0.3")
-      .from(arrowRef.current, {
-        y: -10,
-        opacity: 0,
-        duration: 0.3
-      }, "-=0.1");
-    
-    return () => {
-      // Clean up animations
-      heroTl.kill();
-    };
-  }, [createTimeline, gsap]);
+    if (titleRef.current) {
+      const titleElement = titleRef.current;
+      const text = titleElement.innerText;
+      
+      titleElement.innerHTML = '';
+      
+      // Wrap each character in a span with proper spacing
+      for (let i = 0; i < text.length; i++) {
+        const charSpan = document.createElement('span');
+        charSpan.className = 'char';
+        charSpan.style.setProperty('--char-index', i.toString());
+        charSpan.textContent = text[i];
+        titleElement.appendChild(charSpan);
+      }
+    }
+
+    if (subtitleRef.current) {
+      const subtitleElement = subtitleRef.current;
+      
+      // Create a split text effect
+      setTimeout(() => {
+        subtitleElement.classList.add('animate-fade-in');
+      }, 500);
+    }
+  }, []);
 
   return (
-    <section 
-      ref={sectionRef}
-      id="home" 
-      className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4 overflow-hidden bg-black"
-    >
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4 overflow-hidden bg-black">
       <div className="absolute inset-0 bg-noise pointer-events-none"></div>
       
-      <ParallaxSection speed={0.05} direction="up" className="z-10 max-w-5xl mx-auto text-center">
-        <h2 className="uppercase text-white text-sm md:text-base font-medium tracking-wider mb-4">
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
+        <h2 
+          className="uppercase text-white text-sm md:text-base font-medium tracking-wider mb-4 opacity-0 animate-slide-down"
+          style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
+        >
           Web Design Agency
         </h2>
         
@@ -76,15 +60,15 @@ const Hero: React.FC = () => {
         
         <p 
           ref={subtitleRef}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12"
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 opacity-0"
         >
           Your go-to web agency for stunning personal websites and eye-catching ads, 
           all tailored to fit your unique style and needs.
         </p>
         
         <div 
-          ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-slide-up"
+          style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
         >
           <a 
             href="#projects" 
@@ -99,16 +83,18 @@ const Hero: React.FC = () => {
             Get In Touch
           </a>
         </div>
-      </ParallaxSection>
+      </div>
       
       <div 
-        ref={arrowRef}
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce"
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce opacity-0 animate-fade-in"
+        style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
+      
+      {/* Removed the white blur effects from top-right and bottom-left */}
     </section>
   );
 };
