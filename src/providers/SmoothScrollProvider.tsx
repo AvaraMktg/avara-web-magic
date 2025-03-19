@@ -36,17 +36,17 @@ export const SmoothScrollProvider: React.FC<SmoothScrollProviderProps> = ({
 
   useEffect(() => {
     const lenisInstance = new Lenis({
-      lerp: 0.1,
+      lerp: 0.05, // Reduced for better performance
       smooth: true,
       direction: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
       smoothTouch: false,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5, // Reduced for better performance
       ...options
     });
 
-    // Sync lenis with gsap
+    // Optimize the animation frame
     function raf(time: number) {
       lenisInstance.raf(time);
       reqIdRef.current = requestAnimationFrame(raf);
@@ -55,14 +55,10 @@ export const SmoothScrollProvider: React.FC<SmoothScrollProviderProps> = ({
     reqIdRef.current = requestAnimationFrame(raf);
     setLenis(lenisInstance);
     
-    lenisInstance.on('scroll', (e: any) => {
-      // console.log('Scrolling', e);
-    });
-
-    // After lenis initializes, mark as ready
+    // Mark as ready after a shorter timeout
     setTimeout(() => {
       setIsReady(true);
-    }, 100);
+    }, 50);
 
     return () => {
       if (reqIdRef.current) {
