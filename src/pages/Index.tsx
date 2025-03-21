@@ -7,6 +7,7 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import CustomCursor from '@/components/CustomCursor';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 // Import framer-motion for animations
@@ -74,6 +75,7 @@ const Index = () => {
     <AnimatePresence mode="wait">
       <TooltipProvider>
         <div id="main-content" className="min-h-screen bg-avara-black text-white">
+          <CustomCursor />
           <Navbar />
           <Hero />
           <Services />
