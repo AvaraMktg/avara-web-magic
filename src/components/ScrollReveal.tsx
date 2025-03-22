@@ -9,6 +9,7 @@ interface ScrollRevealProps {
   delay?: number;
   threshold?: number;
   once?: boolean;
+  duration?: number;
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -18,6 +19,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   delay = 0,
   threshold = 0.1,
   once = true,
+  duration = 1.2, // Increased default duration for smoother animations
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   
@@ -25,9 +27,9 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     const element = ref.current;
     if (!element) return;
     
-    // Set initial styles
+    // Set initial styles with longer duration and smoother easing
     element.style.opacity = '0';
-    element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    element.style.transition = `opacity ${duration}s cubic-bezier(0.23, 1, 0.32, 1), transform ${duration}s cubic-bezier(0.23, 1, 0.32, 1)`;
     
     // Apply initial transform based on animation type
     if (animation === 'slide-up') {
@@ -39,10 +41,10 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     } else if (animation === 'slide-right') {
       element.style.transform = 'translateX(-40px)';
     } else if (animation === 'scale-in') {
-      element.style.transform = 'scale(0.9)';
+      element.style.transform = 'scale(0.95)';
     } else if (animation === 'blur-in') {
       element.style.filter = 'blur(10px)';
-      element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      element.style.transition = `opacity ${duration}s cubic-bezier(0.23, 1, 0.32, 1), transform ${duration}s cubic-bezier(0.23, 1, 0.32, 1), filter ${duration}s cubic-bezier(0.23, 1, 0.32, 1)`;
     }
     
     const observer = new IntersectionObserver(
@@ -76,7 +78,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
               } else if (animation === 'slide-right') {
                 element.style.transform = 'translateX(-40px)';
               } else if (animation === 'scale-in') {
-                element.style.transform = 'scale(0.9)';
+                element.style.transform = 'scale(0.95)';
               } else if (animation === 'blur-in') {
                 element.style.filter = 'blur(10px)';
               }
@@ -92,7 +94,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     return () => {
       observer.unobserve(element);
     };
-  }, [animation, delay, once, threshold]);
+  }, [animation, delay, once, threshold, duration]);
   
   return (
     <div 

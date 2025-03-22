@@ -10,7 +10,8 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <ScrollReveal 
           animation="fade-in" 
-          delay={200}
+          delay={300}
+          duration={1.5}
           className="mb-12"
         >
           <h1 className="uppercase text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-tight lg:leading-tight">
@@ -20,7 +21,8 @@ const Hero: React.FC = () => {
         
         <ScrollReveal 
           animation="slide-up" 
-          delay={600}
+          delay={800}
+          duration={1.5}
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
@@ -41,7 +43,8 @@ const Hero: React.FC = () => {
       
       <ScrollReveal 
         animation="fade-in" 
-        delay={1200}
+        delay={1500}
+        duration={2}
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
