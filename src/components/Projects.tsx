@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -27,6 +26,13 @@ const Projects: React.FC = () => {
       image: "/lovable-uploads/2193696a-30e9-4b2e-9a34-8c5f1aa37b7d.png",
       link: "https://anastasiafloridarealtor.com",
       description: "A professional real estate website designed to showcase properties and generate leads."
+    },
+    {
+      title: "Elif Seda Miami",
+      type: "Business Website",
+      image: "https://placehold.co/800x600/black/white?text=Elif+Seda+Miami",
+      link: "https://elifsedamiami.com/",
+      description: "A sleek, professional website for Elif Seda's Miami-based business."
     }
   ];
 
