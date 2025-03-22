@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -9,6 +10,7 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [showContent, setShowContent] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,7 +43,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         !showContent && "opacity-0 pointer-events-none"
       )}
     >
-      <div className="text-5xl tracking-[1.5rem] font-light mb-8 text-white">A V A R A</div>
+      <div className={cn(
+        "tracking-[1.5rem] font-light mb-8 text-white",
+        isMobile ? "text-3xl tracking-[0.8rem]" : "text-5xl tracking-[1.5rem]"
+      )}>
+        A V A R A
+      </div>
       
       <div className="w-64 bg-gray-800 rounded-full h-1 overflow-hidden">
         <div 

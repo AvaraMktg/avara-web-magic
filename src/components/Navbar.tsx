@@ -1,10 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +32,12 @@ const Navbar: React.FC = () => {
       )}
     >
       <div className="container mx-auto flex flex-col items-center">
-        <div className="text-2xl tracking-[0.5rem] font-light mb-4 text-white">A V A R A</div>
+        <div className={cn(
+          "font-light mb-4 text-white",
+          isMobile ? "text-xl tracking-[0.3rem]" : "text-2xl tracking-[0.5rem]"
+        )}>
+          A V A R A
+        </div>
         
         <div className="hidden md:flex items-center justify-center space-x-8">
           {menuItems.map((item) => (
@@ -83,7 +90,12 @@ const Navbar: React.FC = () => {
         "fixed inset-0 bg-black/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out",
         menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       )}>
-        <div className="text-4xl tracking-[1rem] font-light mb-8 text-white">A V A R A</div>
+        <div className={cn(
+          "font-light mb-8 text-white",
+          isMobile ? "text-3xl tracking-[0.6rem]" : "text-4xl tracking-[1rem]"
+        )}>
+          A V A R A
+        </div>
         {menuItems.map((item) => (
           <a 
             key={item.name}
