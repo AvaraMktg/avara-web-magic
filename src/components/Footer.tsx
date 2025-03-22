@@ -1,14 +1,22 @@
 
 import React from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
+  const isMobile = useIsMobile();
   
   return (
     <footer className="py-12 px-4 border-t border-white/10 relative bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center mb-8">
-          <div className="text-4xl tracking-[1.5rem] font-light mb-8 text-white">A V A R A</div>
+          <div className={cn(
+            "font-light mb-8 text-white",
+            isMobile ? "text-xl tracking-[0.3rem]" : "text-4xl tracking-[1.5rem]"
+          )}>
+            A V A R A
+          </div>
           
           <div className="mb-6">
             <ul className="flex flex-wrap justify-center gap-6 md:gap-10">
