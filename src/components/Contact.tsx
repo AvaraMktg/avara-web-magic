@@ -50,10 +50,10 @@ const Contact: React.FC = () => {
             </div>
             
             <div className="mt-10">
-              {/* Centered the contact information list */}
+              {/* Improved vertical alignment of contact information with flex-col */}
               <div className="flex flex-col space-y-6 items-center">
                 <a href="mailto:avaramarketing@yahoo.com" 
-                   className="flex items-center text-xl hover:text-white transition-colors group">
+                   className="flex items-center text-xl hover:text-white transition-colors group w-full justify-center md:justify-start max-w-md">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
                     <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -62,17 +62,17 @@ const Contact: React.FC = () => {
                   <span className="text-muted-foreground group-hover:text-white">avaramarketing@yahoo.com</span>
                 </a>
                 
-                <a href="tel:+11234567890" 
-                   className="flex items-center text-xl hover:text-white transition-colors group">
+                <a href="tel:+17863008532" 
+                   className="flex items-center text-xl hover:text-white transition-colors group w-full justify-center md:justify-start max-w-md">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
                     <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <span className="text-muted-foreground group-hover:text-white">+1 (123) 456-7890</span>
+                  <span className="text-muted-foreground group-hover:text-white">+1 (786) 300-8532</span>
                 </a>
                 
-                <div className="flex items-center text-xl group">
+                <div className="flex items-center text-xl group w-full justify-center md:justify-start max-w-md">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
                     <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M17.6569 16.6569C16.7202 17.5935 14.7616 19.5521 13.4138 20.8999C12.6327 21.681 11.3677 21.6814 10.5866 20.9003C9.26234 19.576 7.34159 17.6553 6.34315 16.6569C3.21895 13.5327 3.21895 8.46734 6.34315 5.34315C9.46734 2.21895 14.5327 2.21895 17.6569 5.34315C20.781 8.46734 20.781 13.5327 17.6569 16.6569Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
                 <a href="https://www.instagram.com/avara.marketing/" 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   className="flex items-center text-xl hover:text-white transition-colors group">
+                   className="flex items-center text-xl hover:text-white transition-colors group w-full justify-center md:justify-start max-w-md">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
                     <Instagram className="w-6 h-6 text-white" />
                   </div>
