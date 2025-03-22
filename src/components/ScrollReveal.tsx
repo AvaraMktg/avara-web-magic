@@ -19,7 +19,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   delay = 0,
   threshold = 0.1,
   once = true,
-  duration = 1.2, // Increased default duration for smoother animations
+  duration = 2.0, // Increased default duration for even slower animations
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   
@@ -29,22 +29,22 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     
     // Set initial styles with longer duration and smoother easing
     element.style.opacity = '0';
-    element.style.transition = `opacity ${duration}s cubic-bezier(0.23, 1, 0.32, 1), transform ${duration}s cubic-bezier(0.23, 1, 0.32, 1)`;
+    element.style.transition = `opacity ${duration}s cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}s cubic-bezier(0.16, 1, 0.3, 1)`;
     
-    // Apply initial transform based on animation type
+    // Apply initial transform based on animation type with larger offsets for more visibility
     if (animation === 'slide-up') {
-      element.style.transform = 'translateY(40px)';
+      element.style.transform = 'translateY(60px)'; // Increased from 40px
     } else if (animation === 'slide-down') {
-      element.style.transform = 'translateY(-40px)';
+      element.style.transform = 'translateY(-60px)'; // Increased from 40px
     } else if (animation === 'slide-left') {
-      element.style.transform = 'translateX(40px)';
+      element.style.transform = 'translateX(60px)'; // Increased from 40px
     } else if (animation === 'slide-right') {
-      element.style.transform = 'translateX(-40px)';
+      element.style.transform = 'translateX(-60px)'; // Increased from 40px
     } else if (animation === 'scale-in') {
-      element.style.transform = 'scale(0.95)';
+      element.style.transform = 'scale(0.9)';
     } else if (animation === 'blur-in') {
       element.style.filter = 'blur(10px)';
-      element.style.transition = `opacity ${duration}s cubic-bezier(0.23, 1, 0.32, 1), transform ${duration}s cubic-bezier(0.23, 1, 0.32, 1), filter ${duration}s cubic-bezier(0.23, 1, 0.32, 1)`;
+      element.style.transition = `opacity ${duration}s cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}s cubic-bezier(0.16, 1, 0.3, 1), filter ${duration}s cubic-bezier(0.16, 1, 0.3, 1)`;
     }
     
     const observer = new IntersectionObserver(
@@ -70,15 +70,15 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
               element.style.opacity = '0';
               
               if (animation === 'slide-up') {
-                element.style.transform = 'translateY(40px)';
+                element.style.transform = 'translateY(60px)'; // Increased from 40px
               } else if (animation === 'slide-down') {
-                element.style.transform = 'translateY(-40px)';
+                element.style.transform = 'translateY(-60px)'; // Increased from 40px
               } else if (animation === 'slide-left') {
-                element.style.transform = 'translateX(40px)';
+                element.style.transform = 'translateX(60px)'; // Increased from 40px
               } else if (animation === 'slide-right') {
-                element.style.transform = 'translateX(-40px)';
+                element.style.transform = 'translateX(-60px)'; // Increased from 40px
               } else if (animation === 'scale-in') {
-                element.style.transform = 'scale(0.95)';
+                element.style.transform = 'scale(0.9)';
               } else if (animation === 'blur-in') {
                 element.style.filter = 'blur(10px)';
               }
