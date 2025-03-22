@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
     {
       title: "Elif Seda Miami",
       type: "Real Estate Portfolio",
-      image: "https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&h=600",
+      image: "/lovable-uploads/fb99bdb9-72e0-4d91-afa4-93041b564081.png",
       link: "https://elifsedamiami.com/",
       description: "Real Estate Portfolio"
     }
