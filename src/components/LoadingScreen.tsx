@@ -44,8 +44,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       )}
     >
       <div className={cn(
-        "tracking-[1.5rem] font-light mb-8 text-white",
-        isMobile ? "text-3xl tracking-[0.8rem]" : "text-5xl tracking-[1.5rem]"
+        "font-light mb-8 text-white",
+        isMobile ? "text-2xl tracking-[0.5rem]" : "text-5xl tracking-[1.5rem]"
       )}>
         A V A R A
       </div>

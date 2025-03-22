@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -34,7 +33,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex flex-col items-center">
         <div className={cn(
           "font-light mb-4 text-white",
-          isMobile ? "text-xl tracking-[0.3rem]" : "text-2xl tracking-[0.5rem]"
+          isMobile ? "text-lg tracking-[0.25rem]" : "text-2xl tracking-[0.5rem]"
         )}>
           A V A R A
         </div>
@@ -92,7 +91,7 @@ const Navbar: React.FC = () => {
       )}>
         <div className={cn(
           "font-light mb-8 text-white",
-          isMobile ? "text-3xl tracking-[0.6rem]" : "text-4xl tracking-[1rem]"
+          isMobile ? "text-2xl tracking-[0.4rem]" : "text-4xl tracking-[1rem]"
         )}>
           A V A R A
         </div>
