@@ -23,6 +23,7 @@ const Hero: React.FC = () => {
           animation="slide-up" 
           delay={1000}
           duration={2.5}
+          className="mt-8" // Added margin-top to move buttons down slightly
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
@@ -41,16 +42,7 @@ const Hero: React.FC = () => {
         </ScrollReveal>
       </div>
       
-      <ScrollReveal 
-        animation="fade-in" 
-        delay={1800}
-        duration={3}
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </ScrollReveal>
+      {/* Down arrow removed */}
     </section>
   );
 };

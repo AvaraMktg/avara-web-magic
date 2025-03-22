@@ -50,7 +50,8 @@ const Contact: React.FC = () => {
             </div>
             
             <div className="mt-10">
-              <div className="flex flex-col space-y-6">
+              {/* Centered the contact information list */}
+              <div className="flex flex-col space-y-6 items-center">
                 <a href="mailto:avaramarketing@yahoo.com" 
                    className="flex items-center text-xl hover:text-white transition-colors group">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
