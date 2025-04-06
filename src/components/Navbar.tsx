@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -30,9 +31,9 @@ const Navbar: React.FC = () => {
         scrolled ? "bg-black/80 backdrop-blur-md py-4 shadow-sm" : "bg-transparent py-6"
       )}
     >
-      <div className="container mx-auto flex flex-col items-center">
+      <div className="container mx-auto flex items-center justify-between">
         <div className={cn(
-          "font-light mb-4 text-white",
+          "font-light text-white",
           isMobile ? "text-lg tracking-[0.25rem]" : "text-2xl tracking-[0.5rem]"
         )}>
           A V A R A
@@ -59,15 +60,16 @@ const Navbar: React.FC = () => {
         <button 
           className="block md:hidden relative z-50 w-10 h-10"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
         >
-          <div className="absolute w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out"
+          <div className="absolute w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out"
             style={{
               top: menuOpen ? '50%' : 'calc(50% - 4px)',
               left: '50%',
               transform: `translate(-50%, -50%) ${menuOpen ? 'rotate(45deg)' : 'rotate(0)'}`,
             }}
           />
-          <div className="absolute w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out"
+          <div className="absolute w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out"
             style={{
               top: '50%',
               left: '50%',
@@ -75,7 +77,7 @@ const Navbar: React.FC = () => {
               opacity: menuOpen ? 0 : 1,
             }}
           />
-          <div className="absolute w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out"
+          <div className="absolute w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out"
             style={{
               top: menuOpen ? '50%' : 'calc(50% + 4px)',
               left: '50%',
