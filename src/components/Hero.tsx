@@ -5,6 +5,18 @@ import ScrollReveal from '@/components/ScrollReveal';
 const Hero: React.FC = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4 overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 z-0" 
+        style={{
+          backgroundImage: "url('/lovable-uploads/96cd849c-da7c-492c-a39e-84601cd5cc57.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.4,
+          mixBlendMode: "overlay"
+        }}
+      ></div>
+      
       <div className="absolute inset-0 bg-noise pointer-events-none"></div>
       
       <div className="relative z-10 max-w-5xl mx-auto text-center">
