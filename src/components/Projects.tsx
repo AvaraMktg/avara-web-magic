@@ -38,7 +38,9 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 relative bg-black">
+    <section id="projects" className="py-20 px-4 relative">
+      <div className="absolute inset-0 bg-noise pointer-events-none"></div>
+      
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="uppercase text-white text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>

@@ -5,7 +5,7 @@ import { Instagram } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-20 px-4 relative bg-black">
+    <section id="contact" className="py-20 px-4 relative">
       <div className="absolute inset-0 bg-noise pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto">
@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 gap-12 items-center">
-          <div className="glass-panel rounded-2xl p-10 max-w-3xl mx-auto w-full opacity-0 animate-scale-in shadow-lg bg-black border border-white/20" 
+          <div className="glass-panel rounded-2xl p-10 max-w-3xl mx-auto w-full opacity-0 animate-scale-in shadow-lg border border-white/20" 
                style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
             
             <div className="text-center mb-8">

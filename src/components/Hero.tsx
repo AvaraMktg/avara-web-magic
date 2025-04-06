@@ -4,7 +4,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4 overflow-hidden bg-black">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4 overflow-hidden">
       <div className="absolute inset-0 bg-noise pointer-events-none"></div>
       
       <div className="relative z-10 max-w-5xl mx-auto text-center">
@@ -41,8 +41,6 @@ const Hero: React.FC = () => {
           </div>
         </ScrollReveal>
       </div>
-      
-      {/* Down arrow removed */}
     </section>
   );
 };

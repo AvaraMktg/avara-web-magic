@@ -73,7 +73,7 @@ const Index = () => {
   return (
     <AnimatePresence mode="wait">
       <TooltipProvider>
-        <div id="main-content" className="min-h-screen bg-avara-black text-white">
+        <div id="main-content" className="min-h-screen text-white">
           <Navbar />
           <Hero />
           <Services />
