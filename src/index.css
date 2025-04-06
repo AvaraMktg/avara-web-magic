@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,12 +46,13 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
-                #0d0d0d; /* Deep black base */
+    background: radial-gradient(circle at 5% 5%, rgba(255, 255, 255, 0.03) 0%, transparent 15%),
+                radial-gradient(circle at 95% 95%, rgba(255, 255, 255, 0.03) 0%, transparent 15%),
+                radial-gradient(circle at 95% 5%, rgba(255, 255, 255, 0.02) 0%, transparent 10%),
+                radial-gradient(circle at 5% 95%, rgba(255, 255, 255, 0.02) 0%, transparent 10%),
+                #000000; /* Pure black base */
     background-blend-mode: screen;
-    background-color: #0d0d0d;
+    background-color: #000000;
   }
 
   h1, h2, h3, h4, h5, h6 {
