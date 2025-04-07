@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 interface Project {
@@ -12,6 +12,20 @@ interface Project {
 
 const Projects: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDarkTheme(document.documentElement.classList.contains('dark-theme'));
+    };
+    
+    // Check theme initially and when it changes
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => observer.disconnect();
+  }, []);
 
   const projects: Project[] = [
     {
@@ -43,11 +57,11 @@ const Projects: React.FC = () => {
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="uppercase text-white text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
+          <h2 className={`uppercase ${isDarkTheme ? 'text-white' : 'text-black'} text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down`} style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
             Our Portfolio
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Recent Projects</h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+          <h3 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkTheme ? 'text-white' : 'text-black'} opacity-0 animate-slide-up`} style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Recent Projects</h3>
+          <p className={`${isDarkTheme ? 'text-muted-foreground' : 'text-gray-600'} max-w-2xl mx-auto opacity-0 animate-fade-in`} style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             Explore our latest work and see how we've helped clients achieve their digital goals.
           </p>
         </div>
@@ -113,7 +127,7 @@ const Projects: React.FC = () => {
       <div className="mt-12 text-center opacity-0 animate-fade-in" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
         <a 
           href="#contact" 
-          className="inline-flex items-center justify-center px-8 py-3 border border-white/20 hover:border-white text-base font-medium rounded-full text-white hover:text-white transition-all duration-300"
+          className={`inline-flex items-center justify-center px-8 py-3 border ${isDarkTheme ? 'border-white/20 hover:border-white text-white hover:text-white' : 'border-black/20 hover:border-black text-black hover:text-black'} text-base font-medium rounded-full transition-all duration-300`}
         >
           Start Your Project
           <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

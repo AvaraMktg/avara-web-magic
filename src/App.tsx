@@ -58,7 +58,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-        {!isMobile && isDarkTheme && <CustomCursor />}
+        {!isMobile && <CustomCursor />}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

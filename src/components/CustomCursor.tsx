@@ -6,6 +6,7 @@ const CustomCursor: React.FC = () => {
   const [hidden, setHidden] = useState(true);
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
   
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
@@ -20,6 +21,14 @@ const CustomCursor: React.FC = () => {
     
     const onLinkHoverStart = () => setLinkHovered(true);
     const onLinkHoverEnd = () => setLinkHovered(false);
+    
+    const checkTheme = () => {
+      setIsDarkTheme(document.documentElement.classList.contains('dark-theme'));
+    };
+    
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true });
     
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mousedown', onMouseDown);
@@ -37,6 +46,7 @@ const CustomCursor: React.FC = () => {
       document.removeEventListener('mousedown', onMouseDown);
       document.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('mouseleave', onMouseLeave);
+      observer.disconnect();
       
       links.forEach((link) => {
         link.removeEventListener('mouseenter', onLinkHoverStart);
@@ -45,10 +55,14 @@ const CustomCursor: React.FC = () => {
     };
   }, []);
   
+  // In light theme, use black cursor instead of white
+  const cursorColor = isDarkTheme ? 'bg-white' : 'bg-black';
+  const cursorBorder = isDarkTheme ? 'border-white' : 'border-black';
+  
   return (
     <>
       <div 
-        className={`fixed pointer-events-none z-50 mix-blend-difference h-4 w-4 rounded-full bg-white transition-transform duration-300 ease-out ${clicked ? 'scale-75' : ''} ${hidden ? 'opacity-0' : 'opacity-100'} ${linkHovered ? 'scale-[4]' : ''}`}
+        className={`fixed pointer-events-none z-50 mix-blend-difference h-4 w-4 rounded-full ${cursorColor} transition-transform duration-300 ease-out ${clicked ? 'scale-75' : ''} ${hidden ? 'opacity-0' : 'opacity-100'} ${linkHovered ? 'scale-[4]' : ''}`}
         style={{ 
           left: `${position.x}px`, 
           top: `${position.y}px`,
@@ -56,7 +70,7 @@ const CustomCursor: React.FC = () => {
         }}
       />
       <div 
-        className={`fixed pointer-events-none z-40 mix-blend-difference h-8 w-8 rounded-full border border-white transition-all duration-500 ease-out ${hidden ? 'opacity-0' : 'opacity-60'} ${linkHovered ? 'opacity-0' : ''}`}
+        className={`fixed pointer-events-none z-40 mix-blend-difference h-8 w-8 rounded-full border ${cursorBorder} transition-all duration-500 ease-out ${hidden ? 'opacity-0' : 'opacity-60'} ${linkHovered ? 'opacity-0' : ''}`}
         style={{ 
           left: `${position.x}px`, 
           top: `${position.y}px`,
