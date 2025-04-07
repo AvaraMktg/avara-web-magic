@@ -127,46 +127,51 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
+      {/* Mobile Menu - Updated to be more compact */}
       <div className={cn(
-        "fixed inset-0 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out",
+        "fixed inset-x-0 top-0 z-40 flex flex-col items-center transition-all duration-300 ease-in-out shadow-lg",
         isDarkTheme ? "bg-black/95" : "bg-white/95",
-        menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-      )}>
-        <div className={cn(
-          "font-light mb-8",
-          isMobile ? "text-2xl tracking-[0.4rem]" : "text-4xl tracking-[1rem]",
-          isDarkTheme ? "text-white" : "text-black"
-        )}>
-          A V A R A
-        </div>
-        {menuItems.map((item) => (
+        menuOpen 
+          ? "opacity-100 pointer-events-auto pt-20 pb-6" 
+          : "opacity-0 pointer-events-none -translate-y-full"
+      )}
+      style={{ 
+        maxHeight: '80vh',
+        overflowY: 'auto',
+        backdropFilter: 'blur(10px)'
+      }}>
+        <div className="flex flex-col items-center space-y-4 w-full px-6">
+          {menuItems.map((item) => (
+            <a 
+              key={item.name}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className={cn(
+                "text-lg w-full text-center py-2 border-b transition-colors duration-300",
+                isDarkTheme 
+                  ? "text-white hover:text-gray-300 border-white/20" 
+                  : "text-black hover:text-gray-700 border-black/20"
+              )}
+            >
+              {item.name}
+            </a>
+          ))}
           <a 
-            key={item.name}
-            href={item.href}
+            href="#contact" 
             onClick={() => setMenuOpen(false)}
             className={cn(
-              "text-2xl transition-colors duration-300 rounded-full hover:bg-white/10 px-6 py-2",
-              isDarkTheme ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"
+              "mt-4 font-medium py-3 px-8 rounded-full transition-all duration-300 w-full text-center",
+              isDarkTheme 
+                ? "bg-white text-black hover:bg-white/80" 
+                : "bg-black text-white hover:bg-black/80"
             )}
           >
-            {item.name}
+            Get In Touch
           </a>
-        ))}
-        <a 
-          href="#contact" 
-          onClick={() => setMenuOpen(false)}
-          className={cn(
-            "mt-4 font-medium py-3 px-8 rounded-full transition-all duration-300",
-            isDarkTheme 
-              ? "bg-white text-black hover:bg-white/80" 
-              : "bg-black text-white hover:bg-black/80"
-          )}
-        >
-          Get In Touch
-        </a>
-        
-        <div className="mt-8">
-          <ThemeSwitch />
+          
+          <div className="mt-4">
+            <ThemeSwitch />
+          </div>
         </div>
       </div>
     </nav>
