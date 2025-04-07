@@ -77,6 +77,9 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+  }
+
+  .dark-theme body {
     background: radial-gradient(circle at 5% 5%, rgba(255, 255, 255, 0.03) 0%, transparent 15%),
                 radial-gradient(circle at 95% 95%, rgba(255, 255, 255, 0.03) 0%, transparent 15%),
                 radial-gradient(circle at 95% 5%, rgba(255, 255, 255, 0.02) 0%, transparent 10%),
@@ -98,6 +101,18 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
+  }
+
+  #services {
+    background-color: transparent;
+  }
+
+  .light-theme #services {
+    background-color: white;
+  }
+
+  .dark-theme #services {
+    background-color: transparent;
   }
 }
 

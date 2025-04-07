@@ -15,6 +15,7 @@ const queryClient = new QueryClient();
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   useEffect(() => {
     // Check if device is mobile
@@ -22,8 +23,19 @@ const App = () => {
       setIsMobile(window.innerWidth <= 768);
     };
     
+    // Check theme
+    const checkTheme = () => {
+      setIsDarkTheme(document.documentElement.classList.contains('dark-theme'));
+    };
+    
     checkMobile();
+    checkTheme();
+    
     window.addEventListener('resize', checkMobile);
+    
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true });
     
     // Update favicon
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement;
@@ -36,6 +48,7 @@ const App = () => {
     
     return () => {
       window.removeEventListener('resize', checkMobile);
+      observer.disconnect();
     };
   }, []);
 
@@ -45,7 +58,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-        {!isMobile && <CustomCursor />}
+        {!isMobile && isDarkTheme && <CustomCursor />}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
