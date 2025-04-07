@@ -8,13 +8,23 @@ import { useState, useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import LoadingScreen from "./components/LoadingScreen";
+import CustomCursor from "./components/CustomCursor";
 
 const queryClient = new QueryClient();
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
     // Update favicon
     const link = document.querySelector("link[rel='icon']") as HTMLLinkElement;
     if (link) {
@@ -23,6 +33,10 @@ const App = () => {
     
     // Update title
     document.title = "Avara Marketing";
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return (
@@ -31,6 +45,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+        {!isMobile && <CustomCursor />}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

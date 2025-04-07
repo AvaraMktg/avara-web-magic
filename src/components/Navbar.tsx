@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import ThemeSwitch from './ThemeSwitch';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +45,7 @@ const Navbar: React.FC = () => {
             <a 
               key={item.name}
               href={item.href}
-              className="text-muted-foreground hover:text-white transition-colors duration-300 text-sm circle-link py-1"
+              className="text-muted-foreground hover:text-white transition-colors duration-300 text-sm rounded-full py-1 hover:bg-white/10 px-4"
             >
               {item.name}
             </a>
@@ -55,6 +56,10 @@ const Navbar: React.FC = () => {
           >
             Get In Touch
           </a>
+        </div>
+
+        <div className="hidden md:block">
+          <ThemeSwitch />
         </div>
 
         <button 
@@ -102,7 +107,7 @@ const Navbar: React.FC = () => {
             key={item.name}
             href={item.href}
             onClick={() => setMenuOpen(false)}
-            className="text-2xl text-white hover:text-gray-400 transition-colors duration-300"
+            className="text-2xl text-white hover:text-gray-400 transition-colors duration-300 rounded-full hover:bg-white/10 px-6 py-2"
           >
             {item.name}
           </a>
@@ -114,6 +119,10 @@ const Navbar: React.FC = () => {
         >
           Get In Touch
         </a>
+        
+        <div className="mt-8">
+          <ThemeSwitch />
+        </div>
       </div>
     </nav>
   );
