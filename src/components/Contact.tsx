@@ -10,10 +10,10 @@ const Contact: React.FC = () => {
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="uppercase text-white text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
+          <h2 className="uppercase text-black dark-theme:text-white text-sm md:text-base font-medium tracking-wider mb-3 opacity-0 animate-slide-down" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
             Get In Touch
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Let's Create Something Amazing Together</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black dark-theme:text-white opacity-0 animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Let's Create Something Amazing Together</h3>
           <p className="text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             Ready to elevate your online presence? Connect with us today and let's discuss your project.
           </p>
@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
                style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
             
             <div className="text-center mb-8">
-              <h4 className="text-2xl font-bold mb-4 text-white">Connect With Us</h4>
+              <h4 className="text-2xl font-bold mb-4 text-black dark-theme:text-white">Connect With Us</h4>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Avara Marketing is your go-to web agency for stunning personal websites and eye-catching ads, 
                 all tailored to fit your unique style and needs.
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
               <div>
-                <h4 className="text-xl font-bold mb-4 text-white">Why Choose Avara Marketing?</h4>
+                <h4 className="text-xl font-bold mb-4 text-black dark-theme:text-white">Why Choose Avara Marketing?</h4>
                 <p className="text-muted-foreground leading-relaxed">
                   We're all about making you look amazing online—whether you're building your brand, 
                   growing your business, or just want a sleek, professional site that stands out.
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div>
-                <h4 className="text-xl font-bold mb-4 text-white">Our Approach</h4>
+                <h4 className="text-xl font-bold mb-4 text-black dark-theme:text-white">Our Approach</h4>
                 <p className="text-muted-foreground leading-relaxed">
                   Our team blends creativity with smart strategy to bring your vision to life,
                   making sure your website isn't just beautiful but also works like a charm.
@@ -50,7 +50,6 @@ const Contact: React.FC = () => {
             </div>
             
             <div className="mt-10">
-              {/* Improved vertical alignment of contact information with flex-col */}
               <div className="flex flex-col space-y-6 items-center">
                 <a href="mailto:avaramarketing@yahoo.com" 
                    className="flex items-center text-xl hover:text-white transition-colors group w-full justify-center md:justify-start max-w-md">
