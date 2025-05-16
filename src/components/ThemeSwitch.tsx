@@ -31,15 +31,19 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className }) => {
 
     checkInitialTheme();
 
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add('dark-theme');
-      root.classList.remove('light-theme');
-      localStorage?.setItem('theme', 'dark');
-    } else {
-      root.classList.add('light-theme');
-      root.classList.remove('dark-theme');
-      localStorage?.setItem('theme', 'light');
+    // Only run DOM operations in browser environment
+    if (typeof document !== 'undefined') {
+      const root = document.documentElement;
+      if (isDark) {
+        root.classList.add('dark-theme');
+        root.classList.remove('light-theme');
+        // Use optional chaining to avoid errors if localStorage is undefined
+        typeof localStorage !== 'undefined' && localStorage.setItem('theme', 'dark');
+      } else {
+        root.classList.add('light-theme');
+        root.classList.remove('dark-theme');
+        typeof localStorage !== 'undefined' && localStorage.setItem('theme', 'light');
+      }
     }
   }, [isDark]);
 
