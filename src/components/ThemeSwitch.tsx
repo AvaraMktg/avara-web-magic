@@ -8,26 +8,38 @@ interface ThemeSwitchProps {
 }
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className }) => {
-  // Initialize with system preference or stored preference
-  const [isDark, setIsDark] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme === 'dark';
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
+  // Initialize with a default theme (dark) for server-side rendering
+  const [isDark, setIsDark] = useState(true);
 
-  // Apply theme on mount and when changed
+  // Apply theme on mount and when changed - only in browser environment
   useEffect(() => {
+    // Initialize with system preference or stored preference
+    const checkInitialTheme = () => {
+      if (typeof localStorage !== 'undefined') {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          setIsDark(savedTheme === 'dark');
+          return;
+        }
+      }
+      
+      // Check system preference if localStorage isn't available or no saved preference
+      if (typeof window !== 'undefined') {
+        setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+    };
+
+    checkInitialTheme();
+
     const root = document.documentElement;
     if (isDark) {
       root.classList.add('dark-theme');
       root.classList.remove('light-theme');
-      localStorage.setItem('theme', 'dark');
+      localStorage?.setItem('theme', 'dark');
     } else {
       root.classList.add('light-theme');
       root.classList.remove('dark-theme');
-      localStorage.setItem('theme', 'light');
+      localStorage?.setItem('theme', 'light');
     }
   }, [isDark]);
 
