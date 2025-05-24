@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -28,6 +27,13 @@ const Projects: React.FC = () => {
   }, []);
 
   const projects: Project[] = [
+    {
+      title: "ADA Realty LLC",
+      type: "Real Estate Website",
+      image: "/lovable-uploads/placeholder-website.jpg",
+      link: "https://adarealtyllc.com/",
+      description: "A professional real estate website designed to showcase properties and provide comprehensive real estate services."
+    },
     {
       title: "Burak Kus",
       type: "Personal Portfolio",
